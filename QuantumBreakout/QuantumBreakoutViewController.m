@@ -14,6 +14,9 @@
 
 @implementation QuantumBreakoutViewController
 
+@synthesize ball;
+@synthesize paddle;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

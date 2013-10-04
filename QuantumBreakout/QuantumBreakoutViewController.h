@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface QuantumBreakoutViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIImageView *ball;
+@property (strong, nonatomic) IBOutlet UIImageView *paddle;
 
 @end
