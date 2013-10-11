@@ -16,6 +16,8 @@
 
 @synthesize ball;
 @synthesize paddle;
+@synthesize paddleView;
+
 
 - (void)viewDidLoad
 {
@@ -28,6 +30,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)pan:(UIPanGestureRecognizer *)sender {
+    CGPoint difference = [sender translationInView:self.view];
+    paddle.center = CGPointMake(paddle.center.x + difference.x, paddle.center.y);
+    [sender setTranslation:CGPointMake(0, 0) inView:self.view];
 }
 
 @end

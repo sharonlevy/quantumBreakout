@@ -16,6 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oW1-LF-wJE">
+                                <rect key="frame" x="0.0" y="456" width="320" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="P3T-4A-HLR" appends="YES" id="wEa-wc-hwS"/>
+                                </connections>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG8-nD-4gF">
                                 <rect key="frame" x="143" y="288" width="34" height="27"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,9 +39,15 @@
                     <connections>
                         <outlet property="ball" destination="QG8-nD-4gF" id="w2h-lT-XNh"/>
                         <outlet property="paddle" destination="F5C-ta-SUZ" id="0q1-MS-rP4"/>
+                        <outlet property="paddleView" destination="oW1-LF-wJE" id="rhu-dh-cpT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="P3T-4A-HLR">
+                    <connections>
+                        <action selector="pan:" destination="vXZ-lx-hvc" id="qVM-NW-mZg"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

@@ -11,5 +11,7 @@
 @interface QuantumBreakoutViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
+@property (strong, nonatomic) IBOutlet UIView *paddleView;
 
+- (IBAction)pan:(UIPanGestureRecognizer *)sender;
 @end
