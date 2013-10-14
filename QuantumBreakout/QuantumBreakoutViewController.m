@@ -34,8 +34,19 @@
 - (IBAction)pan:(UIPanGestureRecognizer *)sender {
     
     CGPoint difference = [sender translationInView:self.view];
-    paddle.center = CGPointMake(paddle.center.x + difference.x, paddle.center.y);
-    paddleView.center = CGPointMake(paddleView.center.x + difference.x, paddleView.center.y);
+    if (difference .x+paddle.center.x<45.0)
+    {
+        paddle.center = CGPointMake(45.0, paddle.center.y);
+        paddleView.center = CGPointMake(45.0, paddleView.center.y);
+    }
+    else if (difference .x+paddle.center.x>275.0) {
+        paddle.center = CGPointMake(275.0, paddle.center.y);
+        paddleView.center = CGPointMake(275.0, paddleView.center.y);
+    }
+    else {
+        paddle.center = CGPointMake(paddle.center.x + difference.x, paddle.center.y);
+        paddleView.center = CGPointMake(paddleView.center.x + difference.x, paddleView.center.y);
+    }
     [sender setTranslation:CGPointMake(0, 0) inView:self.view];
 }
 
