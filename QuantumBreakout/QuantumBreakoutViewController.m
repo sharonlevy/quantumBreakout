@@ -18,11 +18,19 @@
 @synthesize paddle;
 @synthesize paddleView;
 
+- (void)AnimateBall{
+    ball.center = CGPointMake(ball.center.x + dx, ball.center.y + dy);
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    //initialize timer
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall) userInfo:nil repeats:YES];
+    //initialize dx and dy
+    dx = 5;//experiment with different values
+    dy = 5;
 }
 
 - (void)didReceiveMemoryWarning
