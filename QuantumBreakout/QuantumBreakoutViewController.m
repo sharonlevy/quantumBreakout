@@ -33,7 +33,7 @@
         dy = -dy;
     }
     
-    if(CGRectIntersectsRect(ball.frame, paddle.frame)){
+    if(CGRectIntersectsRect(ball.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
         dy = -abs(dy);
     }
 
