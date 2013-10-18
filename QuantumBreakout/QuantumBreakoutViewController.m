@@ -21,8 +21,6 @@
 - (void)AnimateBall{
     ball.center = CGPointMake(ball.center.x + dx, ball.center.y + dy);
     //handle collisions
-    
-    //temporary values--need to find robust way of getting boundaries of application
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
@@ -33,6 +31,10 @@
     if(ball.center.y + ball.bounds.size.height/2 > height
         || ball.center.y - ball.bounds.size.height/2 < 0){
         dy = -dy;
+    }
+    
+    if(CGRectIntersectsRect(ball.frame, paddle.frame)){
+        dy = -abs(dy);
     }
 
 }
