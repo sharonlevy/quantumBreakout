@@ -32,6 +32,10 @@
         || ball.center.y - ball.bounds.size.height/2 < 0){
         dy = -dy;
     }
+    
+    if(CGRectIntersectsRect(ball.frame, paddle.frame)){
+        dy = -dy;
+    }
 
 }
 
