@@ -35,7 +35,7 @@
         dy = -dy;
     }
     
-    if(CGRectIntersectsRect(ball.frame, paddle.frame)){
+    if(CGRectIntersectsRect(ball.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
         dy = -abs(dy);
     }
 
@@ -49,6 +49,8 @@
     //initialize dx and dy
     dx = 5;//experiment with different values
     dy = 5;
+    paddle.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height - 300);
+    NSLog(@"view size: %f, %f", self.view.frame.size.width, self.view.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
