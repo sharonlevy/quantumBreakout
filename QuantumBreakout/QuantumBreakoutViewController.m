@@ -26,10 +26,12 @@
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
-    if(ball.center.x > width || ball.center.x < 0){
+    if(ball.center.x + ball.bounds.size.width/2 > width
+        || ball.center.x - ball.bounds.size.width/2 < 0){
         dx = -dx;
     }
-    if(ball.center.y > height || ball.center.y < 0){
+    if(ball.center.y + ball.bounds.size.height/2 > height
+        || ball.center.y - ball.bounds.size.height/2 < 0){
         dy = -dy;
     }
 
