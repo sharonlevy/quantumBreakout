@@ -29,7 +29,10 @@
         dx = -dx;
     }
     if(ball.center.y + ball.bounds.size.height/2 > height){
-        //you lose
+        if (alertShown == NO) {
+            [self lose];
+            alertShown = YES;
+        }
     }
     if(ball.center.y - ball.bounds.size.height/2 < 0){
         dy = -dy;
@@ -39,6 +42,24 @@
         dy = -abs(dy);
     }
 
+}
+
+-(void)lose{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"YOU LOSE"
+                              message:@"HAHAHAHA"
+                              delegate:self
+                              cancelButtonTitle:@"Play Again!"
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    ball.center = CGPointMake(self.view.center.x,self.view.center.y);
+    alertShown = NO;
+   // [self startNewRound];
 }
 
 - (void)viewDidLoad
@@ -51,6 +72,7 @@
     dy = 5;
     paddle.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height - 300);
     NSLog(@"view size: %f, %f", self.view.frame.size.width, self.view.frame.size.height);
+    alertShown = NO;
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuantumBreakoutViewController : UIViewController {
+@interface QuantumBreakoutViewController : UIViewController <UIAlertViewDelegate> {
     NSTimer *timer;
     NSInteger dx;
     NSInteger dy;
+    BOOL alertShown;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
