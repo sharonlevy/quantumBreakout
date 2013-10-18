@@ -34,7 +34,7 @@
     }
     
     if(CGRectIntersectsRect(ball.frame, paddle.frame)){
-        dy = -dy;
+        dy = -abs(dy);
     }
 
 }
