@@ -28,8 +28,10 @@
         || ball.center.x - ball.bounds.size.width/2 < 0){
         dx = -dx;
     }
-    if(ball.center.y + ball.bounds.size.height/2 > height
-        || ball.center.y - ball.bounds.size.height/2 < 0){
+    if(ball.center.y + ball.bounds.size.height/2 > height){
+        //you lose
+    }
+    if(ball.center.y - ball.bounds.size.height/2 < 0){
         dy = -dy;
     }
     
