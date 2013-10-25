@@ -23,27 +23,32 @@
     UIImageView *image = [time userInfo];
     image.center = CGPointMake(image.center.x + dx, ball.center.y + dy);
     //handle collisions
+    [self handleCollision:ball];
+
+}
+
+-(void)handleCollision:(UIImageView*) thisBall{
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
-    if(image.center.x + image.bounds.size.width/2 > width
-        || image.center.x - image.bounds.size.width/2 < 0){
+    if(thisBall.center.x + thisBall.bounds.size.width/2 > width
+       || thisBall.center.x - thisBall.bounds.size.width/2 < 0){
         dx = -dx;
     }
-    if(image.center.y + image.bounds.size.height/2 > height){
+    if(thisBall.center.y + thisBall.bounds.size.height/2 > height){
         if (alertShown == NO) {
             [self lose];
             alertShown = YES;
         }
     }
-    if(image.center.y - image.bounds.size.height/2 < 0){
+    if(thisBall.center.y - thisBall.bounds.size.height/2 < 0){
         dy = -dy;
     }
     
-    if(CGRectIntersectsRect(image.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
+    if(CGRectIntersectsRect(thisBall.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
         dy = -abs(dy);
     }
-    if(CGRectIntersectsRect(image.frame, beamSplitter.frame)) {
+    if(CGRectIntersectsRect(thisBall.frame, beamSplitter.frame)) {
         if (intersectSplitter == NO) {
             [self splitBalls];
             intersectSplitter = YES;
