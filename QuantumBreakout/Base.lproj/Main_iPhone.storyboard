@@ -33,11 +33,16 @@
                                 <rect key="frame" x="115" y="463" width="90" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="uRO-eH-aXC">
+                                <rect key="frame" x="78" y="110" width="164" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="ball" destination="QG8-nD-4gF" id="w2h-lT-XNh"/>
+                        <outlet property="beamSplitter" destination="uRO-eH-aXC" id="cBG-l5-Rau"/>
                         <outlet property="paddle" destination="F5C-ta-SUZ" id="0q1-MS-rP4"/>
                         <outlet property="paddleView" destination="oW1-LF-wJE" id="rhu-dh-cpT"/>
                     </connections>

@@ -7,18 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Ball.h"
 @interface QuantumBreakoutViewController : UIViewController <UIAlertViewDelegate> {
     NSTimer *timer;
     NSInteger dx;
     NSInteger dy;
     BOOL alertShown;
+    BOOL intersectSplitter;
+    NSMutableArray *balls;
+    NSTimer *newTime;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
 @property (strong, nonatomic) IBOutlet UIView *paddleView;
+@property (strong, nonatomic) IBOutlet UIImageView *beamSplitter;
 
 - (IBAction)pan:(UIPanGestureRecognizer *)sender;
-- (void) AnimateBall;
+- (void) AnimateBall: (UIImageView *)ball;
+- (void)lose;
+- (void)splitBalls;
 
 @end

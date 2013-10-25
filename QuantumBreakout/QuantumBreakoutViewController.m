@@ -17,31 +17,55 @@
 @synthesize ball;
 @synthesize paddle;
 @synthesize paddleView;
+@synthesize beamSplitter;
 
-- (void)AnimateBall{
-    ball.center = CGPointMake(ball.center.x + dx, ball.center.y + dy);
+- (void)AnimateBall:(NSTimer *)time{
+    UIImageView *image = [time userInfo];
+    image.center = CGPointMake(image.center.x + dx, ball.center.y + dy);
     //handle collisions
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
-    if(ball.center.x + ball.bounds.size.width/2 > width
-        || ball.center.x - ball.bounds.size.width/2 < 0){
+    if(image.center.x + image.bounds.size.width/2 > width
+        || image.center.x - image.bounds.size.width/2 < 0){
         dx = -dx;
     }
-    if(ball.center.y + ball.bounds.size.height/2 > height){
+    if(image.center.y + image.bounds.size.height/2 > height){
         if (alertShown == NO) {
             [self lose];
             alertShown = YES;
         }
     }
-    if(ball.center.y - ball.bounds.size.height/2 < 0){
+    if(image.center.y - image.bounds.size.height/2 < 0){
         dy = -dy;
     }
     
-    if(CGRectIntersectsRect(ball.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
+    if(CGRectIntersectsRect(image.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
         dy = -abs(dy);
     }
+    if(CGRectIntersectsRect(image.frame, beamSplitter.frame)) {
+        if (intersectSplitter == NO) {
+            [self splitBalls];
+            intersectSplitter = YES;
+        }
+    }
 
+}
+
+-(void)splitBalls {
+    NSLog(@"split");
+    intersectSplitter = YES;
+    Ball *testBall = [[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
+    //probably not going to use
+  /*  UIImage *fakerBall = [UIImage imageNamed:@"ball.png"];
+    UIImageView *fakeBall = [[UIImageView alloc] initWithImage:fakerBall];
+    fakeBall.hidden = NO;
+    fakeBall.frame = CGRectMake(50.0, 50.0, 100.0, 100.0);
+    [self.view addSubview:fakeBall];
+    newTime = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:fakeBall repeats:YES];
+    [balls addObject:fakeBall];
+   // [balls objectAtIndex:0]; */
+    [self.view addSubview:testBall.ball];
 }
 
 -(void)lose{
@@ -66,13 +90,16 @@
 {
     [super viewDidLoad];
     //initialize timer
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
+    
     //initialize dx and dy
     dx = 5;//experiment with different values
     dy = 5;
     paddle.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height - 300);
     NSLog(@"view size: %f, %f", self.view.frame.size.width, self.view.frame.size.height);
     alertShown = NO;
+    intersectSplitter = NO;
+    balls = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
