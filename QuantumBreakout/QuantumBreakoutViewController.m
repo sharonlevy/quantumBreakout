@@ -23,7 +23,7 @@
     UIImageView *image = [time userInfo];
     image.center = CGPointMake(image.center.x + dx, ball.center.y + dy);
     //handle collisions
-    [self handleCollision:ball];
+    [self handleCollision:image];
 
 }
 
@@ -71,7 +71,7 @@
     newTime = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:fakeBall repeats:YES];
     [balls addObject:fakeBall];
     [balls objectAtIndex:0]; */
-    [self.view addSubview:testBall.ball];
+    [self.view.superview addSubview:testBall.ball];
 }
 
 -(void)lose{
