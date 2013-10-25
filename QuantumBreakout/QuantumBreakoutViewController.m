@@ -23,7 +23,8 @@
     UIImageView *image = [time userInfo];
     image.center = CGPointMake(image.center.x + dx, ball.center.y + dy);
     //handle collisions
-    [self handleCollision:image];
+    //put this in a loop
+    [self handleCollision:ball];
 
 }
 
