@@ -62,6 +62,7 @@
 -(void)splitBalls {
     NSLog(@"split");
     intersectSplitter = YES;
+    //change to initWithVelocity
     Ball *testBall = [[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall.ballImage repeats:YES];
     //probably not going to use
