@@ -31,9 +31,11 @@
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
-    if(thisBall.center.x + thisBall.bounds.size.width/2 > width
-       || thisBall.center.x - thisBall.bounds.size.width/2 < 0){
-        dx = -dx;
+    if(thisBall.center.x + thisBall.bounds.size.width/2 > width){
+        dx = -abs(dx);
+    }
+    if(thisBall.center.x - thisBall.bounds.size.width/2 < 0){
+        dx = abs(dx);
     }
     if(thisBall.center.y + thisBall.bounds.size.height/2 > height){
         if (alertShown == NO) {
@@ -42,7 +44,7 @@
         }
     }
     if(thisBall.center.y - thisBall.bounds.size.height/2 < 0){
-        dy = -dy;
+        dy = abs(dy);
     }
     
     if(CGRectIntersectsRect(thisBall.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
@@ -61,7 +63,7 @@
     NSLog(@"split");
     intersectSplitter = YES;
     Ball *testBall = [[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall.ball repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall.ballImage repeats:YES];
     //probably not going to use
   /*  UIImage *fakerBall = [UIImage imageNamed:@"ball.png"];
     UIImageView *fakeBall = [[UIImageView alloc] initWithImage:fakerBall];

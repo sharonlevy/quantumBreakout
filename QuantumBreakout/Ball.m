@@ -9,18 +9,33 @@
 #import "Ball.h"
 
 @implementation Ball 
-@synthesize ball;
+@synthesize ballImage;
 -(id)initWithCoordinate: (CGPoint)point
 {
     if (self = [super init])
     {
         x = point.x;
         y = point.y;
-        ball = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ball.png"]];
-        ball.frame = CGRectMake(x, y, 34, 27);
+        ballImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ball.png"]];
+        ballImage.frame = CGRectMake(x, y, 34, 27);
     }
     return self;
 }
+
+-(id)initWithVelocity: (CGPoint)point : (NSInteger)xVel : (NSInteger)yVel
+{
+    if (self = [super init])
+    {
+        x = point.x;
+        y = point.y;
+        dx = xVel;
+        dy = yVel;
+        ballImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ball.png"]];
+        ballImage.frame = CGRectMake(x, y, 34, 27);
+    }
+    return self;
+}
+
 
 
 @end
