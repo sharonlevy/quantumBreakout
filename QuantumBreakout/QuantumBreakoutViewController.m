@@ -65,7 +65,7 @@
     [self.view addSubview:fakeBall];
     newTime = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:fakeBall repeats:YES];
     [balls addObject:fakeBall];
-   // [balls objectAtIndex:0]; */
+    [balls objectAtIndex:0]; */
     [self.view addSubview:testBall.ball];
 }
 
@@ -91,7 +91,10 @@
 {
     [super viewDidLoad];
     //initialize timer
+   // Ball *tester =[[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
+   // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:tester.ball repeats:YES];
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
+   // [self.view addSubview:tester.ball];
     //initialize dx and dy
     dx = 5;//experiment with different values
     dy = 5;

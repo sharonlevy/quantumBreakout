@@ -7,10 +7,10 @@
         <!--Quantum Breakout View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="QuantumBreakoutViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="vXZ-lx-hvc" customClass="QuantumBreakoutViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="USF-gY-Yas"/>
-                        <viewControllerLayoutGuide type="bottom" id="7XI-9r-RvN"/>
+                        <viewControllerLayoutGuide type="top" id="ojL-EE-CII"/>
+                        <viewControllerLayoutGuide type="bottom" id="J9v-lr-Rk2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
