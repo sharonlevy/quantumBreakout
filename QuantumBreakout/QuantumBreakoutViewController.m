@@ -73,7 +73,7 @@
     newTime = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:fakeBall repeats:YES];
     [balls addObject:fakeBall];
     [balls objectAtIndex:0]; */
-    [self.view.superview addSubview:testBall.ball];
+    [self.view.superview addSubview:testBall.ballImage];
 }
 
 -(void)lose{
