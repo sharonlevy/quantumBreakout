@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oW1-LF-wJE">
-                                <rect key="frame" x="90" y="447" width="140" height="50"/>
+                                <rect key="frame" x="90" y="423" width="140" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -25,23 +25,23 @@
                                     <outletCollection property="gestureRecognizers" destination="P3T-4A-HLR" appends="YES" id="wEa-wc-hwS"/>
                                 </connections>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG8-nD-4gF">
-                                <rect key="frame" x="143" y="288" width="34" height="27"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="F5C-ta-SUZ">
-                                <rect key="frame" x="115" y="463" width="90" height="18"/>
+                                <rect key="frame" x="115" y="439" width="90" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="uRO-eH-aXC">
                                 <rect key="frame" x="78" y="110" width="164" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ns3-xf-NY2">
+                                <rect key="frame" x="142" y="242" width="37" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="ball" destination="QG8-nD-4gF" id="w2h-lT-XNh"/>
+                        <outlet property="ball" destination="Ns3-xf-NY2" id="huI-fj-Muh"/>
                         <outlet property="beamSplitter" destination="uRO-eH-aXC" id="cBG-l5-Rau"/>
                         <outlet property="paddle" destination="F5C-ta-SUZ" id="0q1-MS-rP4"/>
                         <outlet property="paddleView" destination="oW1-LF-wJE" id="rhu-dh-cpT"/>

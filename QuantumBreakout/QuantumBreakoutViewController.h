@@ -15,7 +15,6 @@
     BOOL alertShown;
     BOOL intersectSplitter;
     NSMutableArray *balls;
-    NSTimer *newTime;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
