@@ -61,6 +61,7 @@
     NSLog(@"split");
     intersectSplitter = YES;
     Ball *testBall = [[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall.ball repeats:YES];
     //probably not going to use
   /*  UIImage *fakerBall = [UIImage imageNamed:@"ball.png"];
     UIImageView *fakeBall = [[UIImageView alloc] initWithImage:fakerBall];
@@ -96,7 +97,6 @@
     [super viewDidLoad];
     //initialize timer
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
-    
     //initialize dx and dy
     dx = 5;//experiment with different values
     dy = 5;

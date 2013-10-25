@@ -8,9 +8,7 @@
 
 #import "Ball.h"
 
-@implementation Ball {
-    float x, y;
-}
+@implementation Ball 
 @synthesize ball;
 -(id)initWithCoordinate: (CGPoint)point
 {

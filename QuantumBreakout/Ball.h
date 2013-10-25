@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Ball : NSObject
+@interface Ball : NSObject {
+    float x;
+    float y;
+    NSInteger dx;
+    NSInteger dy;
+}
 
 @property(nonatomic, retain)UIImageView *ball;
--(id)initWithCoordinate: (CGPoint)point;
+-(id)initWithCoordinate: (CGPoint)point ;
 
 @end
