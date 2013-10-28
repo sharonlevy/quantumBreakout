@@ -10,6 +10,8 @@
 
 @implementation Ball 
 @synthesize ballImage;
+@synthesize dx;
+@synthesize dy;
 -(id)initWithCoordinate: (CGPoint)point
 {
     if (self = [super init])

@@ -22,37 +22,37 @@
 - (void)AnimateBall:(NSTimer *)time{
    // UIImageView *image = [time userInfo];
     Ball *image =[time userInfo];
-    image.ballImage.center = CGPointMake(image.ballImage.center.x + dx, image.ballImage.center.y + dy);
+    image.ballImage.center = CGPointMake(image.ballImage.center.x + image.dx, image.ballImage.center.y + image.dy);
     //handle collisions
     //put this in a loop
-    [self handleCollision:image.ballImage];
+    [self handleCollision:image];
 
 }
 
--(void)handleCollision:(UIImageView*) thisBall{
+-(void)handleCollision:(Ball*) thisBall{
     int width = self.view.center.x * 2;
     int height = self.view.center.y * 2;
     
-    if(thisBall.center.x + thisBall.bounds.size.width/2 > width){
-        dx = -abs(dx);
+    if(thisBall.ballImage.center.x + thisBall.ballImage.bounds.size.width/2 > width){
+        thisBall.dx = -abs(thisBall.dx);
     }
-    if(thisBall.center.x - thisBall.bounds.size.width/2 < 0){
-        dx = abs(dx);
+    if(thisBall.ballImage.center.x - thisBall.ballImage.bounds.size.width/2 < 0){
+        thisBall.dx = abs(thisBall.dx);
     }
-    if(thisBall.center.y + thisBall.bounds.size.height/2 > height){
+    if(thisBall.ballImage.center.y + thisBall.ballImage.bounds.size.height/2 > height){
         if (alertShown == NO) {
             [self lose];
             alertShown = YES;
         }
     }
-    if(thisBall.center.y - thisBall.bounds.size.height/2 < 0){
-        dy = abs(dy);
+    if(thisBall.ballImage.center.y - thisBall.ballImage.bounds.size.height/2 < 0){
+        thisBall.dy = abs(thisBall.dy);
     }
     
-    if(CGRectIntersectsRect(thisBall.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
-        dy = -abs(dy);
+    if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
+        thisBall.dy = -abs(thisBall.dy);
     }
-    if(CGRectIntersectsRect(thisBall.frame, beamSplitter.frame)) {
+    if(CGRectIntersectsRect(thisBall.ballImage.frame, beamSplitter.frame)) {
         if (intersectSplitter == NO) {
             [self splitBalls];
             intersectSplitter = YES;
