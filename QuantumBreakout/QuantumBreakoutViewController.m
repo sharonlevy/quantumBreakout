@@ -20,11 +20,12 @@
 @synthesize beamSplitter;
 
 - (void)AnimateBall:(NSTimer *)time{
-    UIImageView *image = [time userInfo];
-    image.center = CGPointMake(image.center.x + dx, ball.center.y + dy);
+   // UIImageView *image = [time userInfo];
+    Ball *image =[time userInfo];
+    image.ballImage.center = CGPointMake(image.ballImage.center.x + dx, image.ballImage.center.y + dy);
     //handle collisions
     //put this in a loop
-    [self handleCollision:ball];
+    [self handleCollision:image.ballImage];
 
 }
 
@@ -64,8 +65,8 @@
     NSLog(@"split");
     intersectSplitter = YES;
     //change to initWithVelocity
-    Ball *testBall = [[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall.ballImage repeats:YES];
+    Ball *testBall = [[Ball alloc] initWithVelocity:CGPointMake(100.0, 100.0) :5 :5 ];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall repeats:YES];
     //probably not going to use
   /*  UIImage *fakerBall = [UIImage imageNamed:@"ball.png"];
     UIImageView *fakeBall = [[UIImageView alloc] initWithImage:fakerBall];
@@ -93,6 +94,7 @@
 {
     ball.center = CGPointMake(self.view.center.x,self.view.center.y);
     alertShown = NO;
+    intersectSplitter = NO;
    // [self startNewRound];
 }
 
@@ -100,10 +102,10 @@
 {
     [super viewDidLoad];
     //initialize timer
-   // Ball *tester =[[Ball alloc] initWithCoordinate:CGPointMake(100.0, 100.0)];
-   // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:tester.ball repeats:YES];
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
-   // [self.view addSubview:tester.ball];
+    Ball *tester =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :5 :5 ];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:tester repeats:YES];
+   // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
+    [self.view addSubview:tester.ballImage];
     //initialize dx and dy
     dx = 5;//experiment with different values
     dy = 5;

@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ns3-xf-NY2">
-                                <rect key="frame" x="142" y="242" width="37" height="27"/>
+                                <rect key="frame" x="142" y="245" width="37" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

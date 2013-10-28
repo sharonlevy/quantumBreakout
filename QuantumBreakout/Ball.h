@@ -17,6 +17,6 @@
 
 @property(nonatomic, retain)UIImageView *ballImage;
 -(id)initWithCoordinate: (CGPoint)point ;
--(id)initWithVelocity: (CGPoint)point : (NSInteger) dx : (NSInteger) dy ;
+-(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
 
 @end
