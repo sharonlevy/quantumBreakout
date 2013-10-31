@@ -17,6 +17,7 @@
 @property(nonatomic, assign)NSInteger dx;
 @property(nonatomic, assign)NSInteger dy;
 @property(nonatomic, assign)BOOL intersectsSplitter;
+@property(nonatomic, assign)BOOL isReal;
 -(id)initWithCoordinate: (CGPoint)point ;
 -(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
 
