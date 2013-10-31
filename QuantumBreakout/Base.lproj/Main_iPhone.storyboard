@@ -30,18 +30,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle.png" translatesAutoresizingMaskIntoConstraints="NO" id="uRO-eH-aXC">
-                                <rect key="frame" x="78" y="110" width="164" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ns3-xf-NY2">
-                                <rect key="frame" x="142" y="245" width="37" height="27"/>
+                                <rect key="frame" x="115" y="105" width="90" height="4"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="ball" destination="Ns3-xf-NY2" id="huI-fj-Muh"/>
                         <outlet property="beamSplitter" destination="uRO-eH-aXC" id="cBG-l5-Rau"/>
                         <outlet property="paddle" destination="F5C-ta-SUZ" id="0q1-MS-rP4"/>
                         <outlet property="paddleView" destination="oW1-LF-wJE" id="rhu-dh-cpT"/>
@@ -57,7 +52,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ball.png" width="610" height="458"/>
+        <image name="paddle.png" width="386" height="131"/>
         <image name="paddle.png" width="386" height="131"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -11,13 +11,12 @@
 @interface Ball : NSObject {
     float x;
     float y;
-  //  NSInteger dx;
-    //NSInteger dy;
 }
 
 @property(nonatomic, retain)UIImageView *ballImage;
 @property(nonatomic, assign)NSInteger dx;
 @property(nonatomic, assign)NSInteger dy;
+@property(nonatomic, assign)BOOL intersectsSplitter;
 -(id)initWithCoordinate: (CGPoint)point ;
 -(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
 

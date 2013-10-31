@@ -13,10 +13,9 @@
     NSInteger dx;
     NSInteger dy;
     BOOL alertShown;
-    BOOL intersectSplitter;
     NSMutableArray *balls;
 }
-@property (strong, nonatomic) IBOutlet UIImageView *ball;
+@property (strong, nonatomic) Ball *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
 @property (strong, nonatomic) IBOutlet UIView *paddleView;
 @property (strong, nonatomic) IBOutlet UIImageView *beamSplitter;

@@ -12,6 +12,7 @@
 @synthesize ballImage;
 @synthesize dx;
 @synthesize dy;
+@synthesize intersectsSplitter;
 -(id)initWithCoordinate: (CGPoint)point
 {
     if (self = [super init])
@@ -34,6 +35,7 @@
         dy = yVel;
         ballImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ball.png"]];
         ballImage.frame = CGRectMake(x, y, 34, 27);
+        intersectsSplitter = NO;
     }
     return self;
 }
