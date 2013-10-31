@@ -71,7 +71,9 @@
     testBall.intersectsSplitter = YES;
     if(thisBall.isReal){
         //50% chance
-        if(YES){
+        int blah = arc4random()%2;
+        NSLog(@"%d", blah);
+        if(blah == 0){
             thisBall.isReal = NO;
             testBall.isReal = YES;
         }
