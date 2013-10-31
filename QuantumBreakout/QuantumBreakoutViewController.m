@@ -38,10 +38,12 @@
     if(thisBall.ballImage.center.x - thisBall.ballImage.bounds.size.width/2 < 0){
         thisBall.dx = abs(thisBall.dx);
     }
-    if(ball.ballImage.center.y + ball.ballImage.bounds.size.height/2 > height){
-        if (alertShown == NO) {
-            [self lose];
-            alertShown = YES;
+    if(thisBall.isReal){
+        if(thisBall.ballImage.center.y + thisBall.ballImage.bounds.size.height/2 > height){
+            if (alertShown == NO) {
+                [self lose];
+                alertShown = YES;
+            }
         }
     }
     if(thisBall.ballImage.center.y - thisBall.ballImage.bounds.size.height/2 < 0){
@@ -65,19 +67,16 @@
 
 -(void)splitBalls:(Ball *)thisBall {
     NSLog(@"split");
-    //change to initWithVelocity
     Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy ];
     testBall.intersectsSplitter = YES;
+    if(thisBall.isReal){
+        //50% chance
+        if(YES){
+            thisBall.isReal = NO;
+            testBall.isReal = YES;
+        }
+    }
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall repeats:YES];
-    //probably not going to use
-  /*  UIImage *fakerBall = [UIImage imageNamed:@"ball.png"];
-    UIImageView *fakeBall = [[UIImageView alloc] initWithImage:fakerBall];
-    fakeBall.hidden = NO;
-    fakeBall.frame = CGRectMake(50.0, 50.0, 100.0, 100.0);
-    [self.view addSubview:fakeBall];
-    newTime = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:fakeBall repeats:YES];
-    [balls addObject:fakeBall];
-    [balls objectAtIndex:0]; */
     [self.view.superview addSubview:testBall.ballImage];
 }
 
@@ -105,6 +104,7 @@
     [super viewDidLoad];
     //initialize timer
     ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :5 :5 ];
+    ball.isReal = YES;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
    // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
     [self.view addSubview:ball.ballImage];

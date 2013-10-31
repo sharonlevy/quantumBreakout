@@ -13,6 +13,7 @@
 @synthesize dx;
 @synthesize dy;
 @synthesize intersectsSplitter;
+@synthesize isReal;
 -(id)initWithCoordinate: (CGPoint)point
 {
     if (self = [super init])
@@ -36,6 +37,7 @@
         ballImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ball.png"]];
         ballImage.frame = CGRectMake(x, y, 34, 27);
         intersectsSplitter = NO;
+        isReal = NO;
     }
     return self;
 }
