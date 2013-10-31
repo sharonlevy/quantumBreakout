@@ -23,6 +23,6 @@
 - (IBAction)pan:(UIPanGestureRecognizer *)sender;
 - (void) AnimateBall: (UIImageView *)ball;
 - (void)lose;
-- (void)splitBalls;
+- (void)splitBalls:(Ball *)thisBall;
 
 @end

@@ -64,8 +64,6 @@
 }
 
 -(void)splitBalls:(Ball *)thisBall {
-    NSLog(@"split");
-    //change to initWithVelocity
     Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy ];
     testBall.intersectsSplitter = YES;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:testBall repeats:YES];
@@ -112,7 +110,6 @@
     dx = 5;//experiment with different values
     dy = 5;
     paddle.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height - 300);
-    NSLog(@"view size: %f, %f", self.view.frame.size.width, self.view.frame.size.height);
     alertShown = NO;
     balls = [[NSMutableArray alloc] init];
 }
