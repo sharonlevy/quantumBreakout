@@ -75,9 +75,9 @@
     
     if(thisBall.isReal){
         //50% chance
-        int blah = arc4random()%2;
-        NSLog(@"%d", blah);
-        if(blah == 0){
+        int maybe = arc4random()%2;
+        NSLog(@"%d", maybe);
+        if(maybe == 0){
             thisBall.isReal = NO;
             testBall.isReal = YES;
         }
