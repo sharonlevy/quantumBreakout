@@ -95,25 +95,25 @@
                               otherButtonTitles:nil];
     
     [alertView show];
-    /*for (int i = 1; i<[balls count]; i++) {
-        [[balls objectAtIndex:i] release];
-    }
-    */
     [timer invalidate];
-    paddle.center = CGPointMake(160, 449);
-    paddleView.center = CGPointMake(160, 449);
    
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    
+    for (int i = [balls count]-1; i>0; i--) {
+        [[[balls objectAtIndex:i] ballImage] removeFromSuperview];
+        [balls removeObjectAtIndex:i];
+     }
+     
     ball.ballImage.center = CGPointMake(self.view.center.x,self.view.center.y);
     alertShown = NO;
     ball.intersectsSplitter = NO;
     ball.isReal = YES;
-   // [self startNewRound];
+    paddle.center = CGPointMake(160, 449);
+    paddleView.center = CGPointMake(160, 449);
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
