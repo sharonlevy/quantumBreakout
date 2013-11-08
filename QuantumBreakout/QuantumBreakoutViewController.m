@@ -81,9 +81,8 @@
             thisBall.isReal = NO;
             testBall.isReal = YES;
         }
-    [balls addObject:testBall];
     }
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
+    [balls addObject:testBall];
     [self.view.superview addSubview:testBall.ballImage];
 }
 
@@ -96,10 +95,11 @@
                               otherButtonTitles:nil];
     
     [alertView show];
-   /* for (int i = 0; i<[balls count]; i++) {
+    /*for (int i = 1; i<[balls count]; i++) {
         [[balls objectAtIndex:i] release];
     }
     */
+    [timer invalidate];
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
    
