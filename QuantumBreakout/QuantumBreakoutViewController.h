@@ -14,6 +14,7 @@
     NSInteger dy;
     BOOL alertShown;
     NSMutableArray *balls;
+    BOOL shouldAnimate;
 }
 @property (strong, nonatomic) Ball *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;

@@ -20,16 +20,13 @@
 @synthesize beamSplitter;
 
 - (void)AnimateBall:(NSTimer *)time{
-  //  Ball *image =[time userInfo];
-   // image.ballImage.center = CGPointMake(image.ballImage.center.x + image.dx, image.ballImage.center.y + image.dy);
-    //handle collisions
-    //put this in a loop
-    for (int i = 0; i<[balls count]; i++) {
-        Ball *current = [balls objectAtIndex:i];
-        current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.ballImage.center.y + current.dy);
-        [self handleCollision:current];
+    if(shouldAnimate){
+        for (int i = 0; i<[balls count]; i++) {
+            Ball *current = [balls objectAtIndex:i];
+            current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.    ballImage.center.y + current.dy);
+            [self handleCollision:current];
+        }
     }
-
 }
 
 -(void)handleCollision:(Ball*) thisBall{
@@ -95,7 +92,8 @@
                               otherButtonTitles:nil];
     
     [alertView show];
-    [timer invalidate];
+    //[timer invalidate];
+    shouldAnimate = NO;
    
 }
 
@@ -113,6 +111,7 @@
     ball.isReal = YES;
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
+    shouldAnimate = YES;
 }
 - (void)viewDidLoad
 {
@@ -120,13 +119,14 @@
     //initialize timer
     ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :5 :5 ];
     ball.isReal = YES;
+    //initialize dx and dy
+    ball.dx = 5;//experiment with different values
+    ball.dy = 5;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
    // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
     [self.view addSubview:ball.ballImage];
-    //initialize dx and dy
-    dx = 5;//experiment with different values
-    dy = 5;
     alertShown = NO;
+    shouldAnimate = YES;
     balls = [[NSMutableArray alloc] init];
     [balls addObject:ball];
 }
