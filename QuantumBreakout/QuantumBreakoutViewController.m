@@ -109,10 +109,22 @@
     alertShown = NO;
     ball.intersectsSplitter = NO;
     ball.isReal = YES;
+    //initialize dx and dy
+    [self getNewVelocity];
+    ball.dx = dx;//experiment with different values
+    ball.dy = dy;
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
     shouldAnimate = YES;
 }
+
+- (void)getNewVelocity
+{
+    //stub
+    dx = 5;
+    dy = 5;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -120,8 +132,9 @@
     ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :5 :5 ];
     ball.isReal = YES;
     //initialize dx and dy
-    ball.dx = 5;//experiment with different values
-    ball.dy = 5;
+    [self getNewVelocity];
+    ball.dx = dx;//experiment with different values
+    ball.dy = dy;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
    // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
     [self.view addSubview:ball.ballImage];
