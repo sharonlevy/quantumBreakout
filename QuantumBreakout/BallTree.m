@@ -49,7 +49,7 @@ struct Node {
     [ball decrementOpacity];
     [newBall matchOpacity:ball];
     //[balls addObject:newBall];
-    struct Node * currNode = ball.node;
+    struct Node * currNode = (struct Node *) ball.node;
     currNode->data = NULL;
     struct Node * leftChild = (struct Node *) malloc(sizeof(struct Node));
     
@@ -63,7 +63,9 @@ struct Node {
     rightChild->parent = currNode;
     rightChild->left = NULL;
     rightChild->right = NULL;
-    //currNode->left =
+    
+    currNode->left = leftChild;
+    currNode->right = rightChild;
     //[self.view.superview addSubview:testBall.ballImage];
 }
 

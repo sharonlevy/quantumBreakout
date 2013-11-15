@@ -20,7 +20,7 @@
 @property(nonatomic, assign)NSInteger dy;
 @property(nonatomic, assign)BOOL intersectsSplitter;
 @property(nonatomic, assign)BOOL isReal;
-@property(nonatomic, assign)struct Node * node;
+@property(nonatomic, assign)void * node;
 -(id)initWithCoordinate: (CGPoint)point ;
 -(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
 -(void)decrementOpacity;
