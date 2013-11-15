@@ -7,7 +7,18 @@
 //
 
 #import "BallTree.h"
+#import "Ball.h"
 
 @implementation BallTree
+
+
+struct Node {
+    Ball *data;
+    struct Node *parent;
+    struct Node *left;
+    struct Node *right;
+};
+
+
 
 @end
