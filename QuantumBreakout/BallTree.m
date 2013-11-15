@@ -19,6 +19,8 @@ struct Node {
     struct Node *right;
 };
 
-
+-(id)init : (Ball *) firstBall{
+    
+}
 
 @end
