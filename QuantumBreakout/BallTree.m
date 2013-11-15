@@ -20,7 +20,8 @@ struct Node {
 };
 
 -(id)init : (Ball *) firstBall{
-    
+    root = (struct Node *) malloc(sizeof(struct Node));
+    return self;
 }
 
 @end

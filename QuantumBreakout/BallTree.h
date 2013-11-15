@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Ball.h"
-@interface BallTree : NSObject
+
+@interface BallTree : NSObject {
+    struct Node *root;
+}
+
+-(id)init : (Ball *) firstBall;
+
 
 
 @end
