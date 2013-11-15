@@ -79,6 +79,8 @@
             testBall.isReal = YES;
         }
     }
+    thisBall.ballImage.layer.opacity = 0.7;
+    testBall.ballImage.layer.opacity = 0.7;
     [balls addObject:testBall];
     [self.view.superview addSubview:testBall.ballImage];
 }
@@ -115,7 +117,7 @@
     ball.dy = dy;
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
+    shouldAnimate = YES;
 }
 
 - (void)getNewVelocity
