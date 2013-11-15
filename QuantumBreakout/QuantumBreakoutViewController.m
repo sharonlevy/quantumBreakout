@@ -79,8 +79,8 @@
             testBall.isReal = YES;
         }
     }
-    thisBall.ballImage.layer.opacity = 0.7;
-    testBall.ballImage.layer.opacity = 0.7;
+    thisBall.ballImage.layer.opacity -= 0.1;
+    testBall.ballImage.layer.opacity = thisBall.ballImage.layer.opacity;
     [balls addObject:testBall];
     [self.view.superview addSubview:testBall.ballImage];
 }
