@@ -15,6 +15,7 @@
 
 -(id)init : (Ball *) firstBall;
 
+-(void)splitBall : (Ball *) ball;
 
 
 @end
