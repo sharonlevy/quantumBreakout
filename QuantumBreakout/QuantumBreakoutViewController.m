@@ -115,8 +115,9 @@
     ball.isReal = YES;
     //initialize dx and dy
     [self getNewVelocity];
-    ball.dx = dx;//experiment with different values
+    ball.dx = dx;
     ball.dy = dy;
+    [ball resetOpacity];
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
     shouldAnimate = YES;
@@ -124,7 +125,6 @@
 
 - (void)getNewVelocity
 {
-    //stub
     int maybe = arc4random()%2;
     if(maybe == 0){
         dx = 3 + arc4random()%3;

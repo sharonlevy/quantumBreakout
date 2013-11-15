@@ -54,6 +54,11 @@
     ballImage.layer.opacity = otherBall.ballImage.layer.opacity;
 }
 
+-(void)resetOpacity
+{
+    ballImage.layer.opacity = 1.0;
+}
+
 
 
 @end
