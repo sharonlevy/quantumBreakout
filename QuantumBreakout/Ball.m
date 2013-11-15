@@ -7,6 +7,7 @@
 //
 
 #import "Ball.h"
+#import "BallTree.h"
 
 @implementation Ball 
 @synthesize ballImage;

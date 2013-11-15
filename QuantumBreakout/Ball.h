@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BallTree.h"
 
 @interface Ball : NSObject {
     float x;
@@ -19,6 +20,7 @@
 @property(nonatomic, assign)NSInteger dy;
 @property(nonatomic, assign)BOOL intersectsSplitter;
 @property(nonatomic, assign)BOOL isReal;
+@property(nonatomic, assign)struct Node * node;
 -(id)initWithCoordinate: (CGPoint)point ;
 -(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
 -(void)decrementOpacity;
