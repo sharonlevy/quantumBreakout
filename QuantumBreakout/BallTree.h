@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Ball.h"
 @interface BallTree : NSObject
+
 
 @end
