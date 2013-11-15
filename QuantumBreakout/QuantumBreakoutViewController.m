@@ -113,6 +113,7 @@
     ball.isReal = YES;
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
 }
 - (void)viewDidLoad
 {
