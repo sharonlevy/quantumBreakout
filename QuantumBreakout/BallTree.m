@@ -20,7 +20,14 @@ struct Node {
 };
 
 -(id)init : (Ball *) firstBall{
-    
+    if(self = [super init]){
+        root = (struct Node *) malloc(sizeof(struct Node));
+        root->data = firstBall;
+        root->parent = NULL;
+        root->left = NULL;
+        root->right = NULL;
+    }
+    return self;
 }
 
 @end
