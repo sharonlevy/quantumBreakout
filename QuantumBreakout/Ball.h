@@ -21,5 +21,8 @@
 @property(nonatomic, assign)BOOL isReal;
 -(id)initWithCoordinate: (CGPoint)point ;
 -(id)initWithVelocity: (CGPoint)point : (NSInteger) xVel : (NSInteger) yVel ;
+-(void)decrementOpacity;
+-(void)matchOpacity: (Ball*) otherBall;
+-(void)resetOpacity;
 
 @end

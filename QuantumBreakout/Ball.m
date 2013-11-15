@@ -42,6 +42,23 @@
     return self;
 }
 
+-(void)decrementOpacity
+{
+    if(ballImage.layer.opacity>0.1){
+        ballImage.layer.opacity -= 0.1;
+    }
+}
+
+-(void)matchOpacity: (Ball*) otherBall
+{
+    ballImage.layer.opacity = otherBall.ballImage.layer.opacity;
+}
+
+-(void)resetOpacity
+{
+    ballImage.layer.opacity = 1.0;
+}
+
 
 
 @end
