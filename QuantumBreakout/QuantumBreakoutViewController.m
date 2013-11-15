@@ -79,10 +79,10 @@
             testBall.isReal = YES;
         }
     }
-    if (thisBall.ballImage.layer.opacity >= 0.1) {
-        thisBall.ballImage.layer.opacity -= 0.05;
-        testBall.ballImage.layer.opacity = thisBall.ballImage.layer.opacity;
-    }
+    //thisBall.ballImage.layer.opacity -= 0.1;
+    //testBall.ballImage.layer.opacity = thisBall.ballImage.layer.opacity;
+    [thisBall decrementOpacity];
+    [testBall matchOpacity:thisBall];
     [balls addObject:testBall];
     [self.view.superview addSubview:testBall.ballImage];
 }

@@ -24,6 +24,7 @@
 		7425CF4517FCD2220036676C /* QuantumBreakoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7425CF4417FCD2220036676C /* QuantumBreakoutTests.m */; };
 		7425CF541807A6D90036676C /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425CF521807A6D90036676C /* ball.png */; };
 		7425CF551807A6D90036676C /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = 7425CF531807A6D90036676C /* paddle.png */; };
+		746462111836D3BE003D0581 /* BallTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 746462101836D3BE003D0581 /* BallTree.m */; };
 		74FA3273181A079900298400 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FA3272181A079900298400 /* Ball.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		7425CF4417FCD2220036676C /* QuantumBreakoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantumBreakoutTests.m; sourceTree = "<group>"; };
 		7425CF521807A6D90036676C /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
 		7425CF531807A6D90036676C /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
+		7464620F1836D3BE003D0581 /* BallTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallTree.h; sourceTree = "<group>"; };
+		746462101836D3BE003D0581 /* BallTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallTree.m; sourceTree = "<group>"; };
 		74FA3271181A079900298400 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		74FA3272181A079900298400 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +132,8 @@
 				7425CF531807A6D90036676C /* paddle.png */,
 				7425CF2E17FCD2220036676C /* QuantumBreakoutViewController.h */,
 				7425CF2F17FCD2220036676C /* QuantumBreakoutViewController.m */,
+				7464620F1836D3BE003D0581 /* BallTree.h */,
+				746462101836D3BE003D0581 /* BallTree.m */,
 				74FA3271181A079900298400 /* Ball.h */,
 				74FA3272181A079900298400 /* Ball.m */,
 				7425CF3117FCD2220036676C /* Images.xcassets */,
@@ -269,6 +274,7 @@
 			files = (
 				74FA3273181A079900298400 /* Ball.m in Sources */,
 				7425CF2317FCD2220036676C /* main.m in Sources */,
+				746462111836D3BE003D0581 /* BallTree.m in Sources */,
 				7425CF3017FCD2220036676C /* QuantumBreakoutViewController.m in Sources */,
 				7425CF2717FCD2220036676C /* QuantumBreakoutAppDelegate.m in Sources */,
 			);
