@@ -89,8 +89,8 @@
 
 -(void)lose{
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"YOU LOSE"
-                              message:@"HAHAHAHA"
+                              initWithTitle:@"SCORE"
+                              message:@"[points not implemented yet]"
                               delegate:self
                               cancelButtonTitle:@"Play Again!"
                               otherButtonTitles:nil];
