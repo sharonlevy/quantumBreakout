@@ -123,8 +123,13 @@
 - (void)getNewVelocity
 {
     //stub
-    dx = 5;
-    dy = 5;
+    int maybe = arc4random()%2;
+    if(maybe == 0){
+        dx = 3 + arc4random()%3;
+    }else{
+        dx = -6 + arc4random()%3;
+    }
+    dy = 3 + arc4random()%3;
 }
 
 - (void)viewDidLoad

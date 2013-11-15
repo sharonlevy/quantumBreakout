@@ -11,6 +11,7 @@
 @interface Ball : NSObject {
     float x;
     float y;
+    //float realness;
 }
 
 @property(nonatomic, retain)UIImageView *ballImage;
