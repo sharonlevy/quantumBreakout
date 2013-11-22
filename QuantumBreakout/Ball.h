@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BallTree.h"
 
 @interface Ball : NSObject {
     float x;
