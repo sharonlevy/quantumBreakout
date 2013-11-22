@@ -20,13 +20,20 @@
 @synthesize beamSplitter;
 
 - (void)AnimateBall:(NSTimer *)time{
-    if(shouldAnimate){
+   /* if(shouldAnimate){
         for (int i = 0; i<[balls count]; i++) {
             Ball *current = [balls objectAtIndex:i];
             current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.    ballImage.center.y + current.dy);
             [self handleCollision:current];
         }
-    }
+    } */
+    [self traverseTree: ball.node];
+}
+-(void) traverseTree:(struct Node *)root {
+    if (root == NULL) return;
+    [self traverseTree: root->left];
+    [self handleCollision:root->data];
+    [self traverseTree:root->right];
 }
 
 -(void)handleCollision:(Ball*) thisBall{

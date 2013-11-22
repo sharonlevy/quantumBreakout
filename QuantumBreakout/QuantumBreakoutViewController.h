@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Ball.h"
+#import "BallTree.h";
 @interface QuantumBreakoutViewController : UIViewController <UIAlertViewDelegate> {
     NSTimer *timer;
     NSInteger dx;
@@ -25,5 +26,5 @@
 - (void) AnimateBall: (UIImageView *)ball;
 - (void)lose;
 - (void)splitBalls:(Ball *)thisBall;
-
+-(void) traverseTree:(struct Node *)root;
 @end

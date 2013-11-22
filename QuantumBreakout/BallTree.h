@@ -10,12 +10,13 @@
 #import "Ball.h"
 
 @interface BallTree : NSObject {
-    struct Node *root;
+   // struct Node *root;
 }
 
--(id)init : (Ball *) firstBall;
+@property(nonatomic, assign)struct Node *root;
+-(id)init: (Ball*)firstBall;
 
--(void)splitBall : (Ball *) ball;
+-(void)splitBall: (Ball*)ball;
 
 
 @end

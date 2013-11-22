@@ -10,7 +10,7 @@
 #import "Ball.h"
 
 @implementation BallTree
-
+@synthesize root;
 
 struct Node {
     Ball *data;
@@ -63,6 +63,8 @@ struct Node {
     rightChild->parent = currNode;
     rightChild->left = NULL;
     rightChild->right = NULL;
+    ball.node = rightChild;
+    
     
     currNode->left = leftChild;
     currNode->right = rightChild;
