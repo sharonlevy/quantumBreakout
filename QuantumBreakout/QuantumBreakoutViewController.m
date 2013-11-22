@@ -27,6 +27,7 @@
             [self handleCollision:current];
         }
     }
+    //score++;
 }
 
 -(void)handleCollision:(Ball*) thisBall{
@@ -53,6 +54,7 @@
     
     if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
         thisBall.dy = -abs(thisBall.dy);
+        score++;
     }
     if(CGRectIntersectsRect(thisBall.ballImage.frame, beamSplitter.frame)) {
         if (thisBall.intersectsSplitter == NO) {
@@ -88,6 +90,7 @@
 }
 
 -(void)lose{
+    //NSInteger adjustedScore = score/10;
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"SCORE"
                               message:[NSString stringWithFormat:@"%d", score]
