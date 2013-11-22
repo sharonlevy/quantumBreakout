@@ -57,11 +57,18 @@
     if(thisBall.ballImage.center.y - thisBall.ballImage.bounds.size.height/2 < 0){
         thisBall.dy = abs(thisBall.dy);
     }
-    
-    if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, paddle.frame.size.width, 1))){
-        thisBall.dy = -abs(thisBall.dy);
-        score++;
+    //sides of paddle
+    if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x, paddle.frame.origin.y, 1, paddle.frame.size.height))){
+        thisBall.dx = -abs(thisBall.dx);
     }
+    if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x + paddle.frame.size.width, paddle.frame.origin.y, 1, paddle.frame.size.height))){
+        thisBall.dx = abs(thisBall.dx);
+    }
+    //top of paddle
+    if(CGRectIntersectsRect(thisBall.ballImage.frame, CGRectMake(paddle.frame.origin.x + 1, paddle.frame.origin.y, paddle.frame.size.width - 2, 1))){
+        thisBall.dy = -abs(thisBall.dy);
+    }
+    //beamsplitter
     if(CGRectIntersectsRect(thisBall.ballImage.frame, beamSplitter.frame)) {
         if (thisBall.intersectsSplitter == NO) {
             thisBall.intersectsSplitter = YES;
