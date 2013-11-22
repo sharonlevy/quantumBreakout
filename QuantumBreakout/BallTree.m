@@ -63,7 +63,7 @@ struct Node {
     rightChild->parent = currNode;
     rightChild->left = NULL;
     rightChild->right = NULL;
-    ball.node = rightChild;
+    ball.node = leftChild;
     
     
     currNode->left = leftChild;
