@@ -13,6 +13,7 @@
     NSTimer *timer;
     NSInteger dx;
     NSInteger dy;
+    NSInteger score;
     BOOL alertShown;
     NSMutableArray *balls;
     BOOL shouldAnimate;
