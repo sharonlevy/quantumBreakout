@@ -90,7 +90,7 @@
 -(void)lose{
     UIAlertView *alertView = [[UIAlertView alloc]
                               initWithTitle:@"SCORE"
-                              message:@"[points not implemented yet]"
+                              message:[NSString stringWithFormat:@"%d", score]
                               delegate:self
                               cancelButtonTitle:@"Play Again!"
                               otherButtonTitles:nil];
@@ -121,6 +121,7 @@
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
     shouldAnimate = YES;
+    score = 0;
 }
 
 - (void)getNewVelocity
@@ -151,6 +152,7 @@
     shouldAnimate = YES;
     balls = [[NSMutableArray alloc] init];
     [balls addObject:ball];
+    score = 0;
 }
 
 - (void)didReceiveMemoryWarning
