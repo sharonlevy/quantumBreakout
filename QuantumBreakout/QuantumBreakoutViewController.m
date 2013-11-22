@@ -31,9 +31,9 @@
 }
 -(void) traverseTree:(struct Node *)root {
     if (root == NULL) return;
-   /* [self traverseTree: root->left];
+    [self traverseTree: root->left];
     [self handleCollision:root->data];
-    [self traverseTree:root->right];*/
+    [self traverseTree:root->right];
 }
 
 -(void)handleCollision:(Ball*) thisBall{
