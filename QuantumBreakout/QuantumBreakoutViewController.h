@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Ball.h"
-#import "BallTree.h";
+#import "BallTree.h"
 @interface QuantumBreakoutViewController : UIViewController <UIAlertViewDelegate> {
     NSTimer *timer;
     NSInteger dx;
@@ -17,6 +17,7 @@
     BOOL alertShown;
     NSMutableArray *balls;
     BOOL shouldAnimate;
+    NSTimer *timeGame;
 }
 @property (strong, nonatomic) Ball *ball;
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;

@@ -20,20 +20,20 @@
 @synthesize beamSplitter;
 
 - (void)AnimateBall:(NSTimer *)time{
-   /* if(shouldAnimate){
+    if(shouldAnimate){
         for (int i = 0; i<[balls count]; i++) {
             Ball *current = [balls objectAtIndex:i];
             current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.    ballImage.center.y + current.dy);
             [self handleCollision:current];
         }
-    } */
-    [self traverseTree: ball.node];
+    }
+  //  [self traverseTree: ball.node];
 }
 -(void) traverseTree:(struct Node *)root {
     if (root == NULL) return;
-    [self traverseTree: root->left];
+   /* [self traverseTree: root->left];
     [self handleCollision:root->data];
-    [self traverseTree:root->right];
+    [self traverseTree:root->right];*/
 }
 
 -(void)handleCollision:(Ball*) thisBall{
@@ -92,6 +92,10 @@
     [testBall matchOpacity:thisBall];
     [balls addObject:testBall];
     [self.view.superview addSubview:testBall.ballImage];
+}
+
+-(void)addPoints {
+    score +=10;
 }
 
 -(void)lose{
@@ -153,6 +157,7 @@
     ball.dx = dx;//experiment with different values
     ball.dy = dy;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(addPoints)  userInfo:nil repeats:YES];
    // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
     [self.view addSubview:ball.ballImage];
     alertShown = NO;
