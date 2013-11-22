@@ -75,7 +75,18 @@
 }
 
 -(void)splitBalls:(Ball *)thisBall {
-    Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy ];
+    if(thisBall.dx > 0){
+        dx = 3 + arc4random()%3;
+    }else{
+        dx = -6 + arc4random()%3;
+    }
+    if (thisBall.dy< 0) {
+        dy = 3 + arc4random()%3;
+    }
+    else {
+        dy = -6 + arc4random()%3;
+    }
+    Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :dx :dy ];
     testBall.intersectsSplitter = YES;
     
     if(thisBall.isReal){
