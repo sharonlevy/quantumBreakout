@@ -23,10 +23,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *paddle;
 @property (strong, nonatomic) IBOutlet UIView *paddleView;
 @property (strong, nonatomic) IBOutlet UIImageView *beamSplitter;
+@property (strong, nonatomic) BallTree *tree;
 
 - (IBAction)pan:(UIPanGestureRecognizer *)sender;
 - (void) AnimateBall: (UIImageView *)ball;
 - (void)lose;
 - (void)splitBalls:(Ball *)thisBall;
--(void) traverseTree:(struct Node *)root;
+
 @end

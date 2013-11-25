@@ -10,7 +10,6 @@
 #import "Ball.h"
 
 @implementation BallTree
-@synthesize root;
 
 struct Node {
     Ball *data;
@@ -27,11 +26,13 @@ struct Node {
         root->left = NULL;
         root->right = NULL;
         firstBall.node = root;
+        ballArray = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
 
--(void)splitBall : (Ball *) ball{
+-(Ball *)splitBall : (Ball *) ball{
     Ball *newBall = [[Ball alloc] initWithVelocity:ball.ballImage.center :ball.dx :(-1) * ball.dy ];
     newBall.intersectsSplitter = YES;
     
@@ -57,19 +58,39 @@ struct Node {
     leftChild->parent = currNode;
     leftChild->left = NULL;
     leftChild->right = NULL;
+    ball.node = leftChild;
     
     struct Node * rightChild = (struct Node *) malloc(sizeof(struct Node));
     rightChild->data = newBall;
     rightChild->parent = currNode;
     rightChild->left = NULL;
     rightChild->right = NULL;
-    ball.node = leftChild;
+    newBall.node = rightChild;
     
     
     currNode->left = leftChild;
     currNode->right = rightChild;
     //[self.view.superview addSubview:testBall.ballImage];
+    return newBall;
 }
+
+-(void) getBallArrayRec:(struct Node *)node {
+    if (node == NULL) return;
+    [self getBallArrayRec: node->left];
+    if (node->data != NULL) {
+       [ballArray addObject:node->data];
+    }
+    [self getBallArrayRec:node->right];
+}
+
+-(NSMutableArray *) getBallArray {
+    for (int i = [ballArray count]-1; i>=0; i--) {
+        [ballArray removeObjectAtIndex:i];
+    }
+    [self getBallArrayRec:root];
+    return ballArray;
+}
+
 
 
 @end

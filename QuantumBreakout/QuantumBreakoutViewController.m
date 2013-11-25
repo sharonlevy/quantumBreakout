@@ -18,23 +18,19 @@
 @synthesize paddle;
 @synthesize paddleView;
 @synthesize beamSplitter;
+@synthesize tree;
 
 - (void)AnimateBall:(NSTimer *)time{
     if(shouldAnimate){
+        balls = [tree getBallArray];
         for (int i = 0; i<[balls count]; i++) {
             Ball *current = [balls objectAtIndex:i];
             current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.    ballImage.center.y + current.dy);
             [self handleCollision:current];
         }
     }
-  //  [self traverseTree: ball.node];
 }
--(void) traverseTree:(struct Node *)root {
-    if (root == NULL) return;
-    [self traverseTree: root->left];
-    [self handleCollision:root->data];
-    [self traverseTree:root->right];
-}
+
 
 -(void)handleCollision:(Ball*) thisBall{
     int width = self.view.center.x * 2;
@@ -72,7 +68,8 @@
     if(CGRectIntersectsRect(thisBall.ballImage.frame, beamSplitter.frame)) {
         if (thisBall.intersectsSplitter == NO) {
             thisBall.intersectsSplitter = YES;
-            [self splitBalls:thisBall];
+            Ball * newBall = [tree splitBall:thisBall];
+            [self.view.superview addSubview:newBall.ballImage];
         }
     }
     if(!CGRectIntersectsRect(thisBall.ballImage.frame, beamSplitter.frame)) {
@@ -174,17 +171,17 @@
     ball.isReal = YES;
     //initialize dx and dy
     [self getNewVelocity];
-    ball.dx = dx;//experiment with different values
+    ball.dx = dx;
     ball.dy = dy;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(addPoints)  userInfo:nil repeats:YES];
-   // timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:ball repeats:YES];
     [self.view addSubview:ball.ballImage];
     alertShown = NO;
     shouldAnimate = YES;
     balls = [[NSMutableArray alloc] init];
-    [balls addObject:ball];
+   // [balls addObject:ball];
     score = 0;
+    tree = [[BallTree alloc] init:ball];
 }
 
 - (void)didReceiveMemoryWarning
