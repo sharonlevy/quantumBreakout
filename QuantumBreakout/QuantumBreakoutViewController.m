@@ -23,6 +23,9 @@
 - (void)AnimateBall:(NSTimer *)time{
     if(shouldAnimate){
         balls = [tree getBallArray];
+        if([balls count]>12){
+            [self win];
+        }
         for (int i = 0; i<[balls count]; i++) {
             Ball *current = [balls objectAtIndex:i];
             current.ballImage.center = CGPointMake(current.ballImage.center.x + current.dx, current.    ballImage.center.y + current.dy);
@@ -129,6 +132,20 @@
    
 }
 
+-(void)win{
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"You Win!"
+                              message:[NSString stringWithFormat:@"%d", score]
+                              delegate:self
+                              cancelButtonTitle:@"Play Again!"
+                              otherButtonTitles:nil];
+    
+    [alertView show];
+    dy += 2;
+    //[timer invalidate];
+    shouldAnimate = NO;
+}
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     
@@ -162,13 +179,14 @@
         dx = -6 + arc4random()%3;
     }
     //dy = 3 + arc4random()%3;
-    dy = 7;
+    //dy = 7;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     //initialize timer
+    dy = 5;
     [self getNewVelocity];
     ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :dx :dy ];
     ball.isReal = YES;
