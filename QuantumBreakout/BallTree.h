@@ -20,4 +20,6 @@
 -(Ball *)splitBall: (Ball*)ball;
 -(void)getBallArrayRec: (struct Node *)node;
 -(NSMutableArray *)getBallArray;
+-(void)deleteTreeRec: (struct Node *)node;
+-(void)deleteTree;
 @end

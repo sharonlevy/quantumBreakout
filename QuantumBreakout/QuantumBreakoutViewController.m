@@ -79,7 +79,7 @@
 }
 
 -(void)splitBalls:(Ball *)thisBall {
-    if(thisBall.dx > 0){
+   /* if(thisBall.dx > 0){
         dx = 3 + arc4random()%3;
     }else{
         dx = -6 + arc4random()%3;
@@ -89,8 +89,8 @@
     }
     else {
         dy = -6 + arc4random()%3;
-    }
-    Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :dx :dy ];
+    } */
+    Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy];
     testBall.intersectsSplitter = YES;
     
     if(thisBall.isReal){
@@ -132,24 +132,25 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     
-    for (int i = [balls count]-1; i>0; i--) {
+    for (int i = [balls count]-1; i>=0; i--) {
         [[[balls objectAtIndex:i] ballImage] removeFromSuperview];
-        [balls removeObjectAtIndex:i];
+       // [balls removeObjectAtIndex:i];
      }
-     
+    [tree deleteTree];
+    [self getNewVelocity];
+    ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :dx :dy ];
     ball.ballImage.center = CGPointMake(self.view.center.x,self.view.center.y);
     alertShown = NO;
     ball.intersectsSplitter = NO;
     ball.isReal = YES;
+    [self.view addSubview:ball.ballImage];
     //initialize dx and dy
-    [self getNewVelocity];
-    ball.dx = dx;
-    ball.dy = dy;
     [ball resetOpacity];
     paddle.center = CGPointMake(160, 449);
     paddleView.center = CGPointMake(160, 449);
     shouldAnimate = YES;
     score = 0;
+    tree = [[BallTree alloc] init:ball];
 }
 
 - (void)getNewVelocity
@@ -160,19 +161,18 @@
     }else{
         dx = -6 + arc4random()%3;
     }
-    dy = 3 + arc4random()%3;
+    //dy = 3 + arc4random()%3;
+    dy = 7;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     //initialize timer
-    ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :5 :5 ];
+    [self getNewVelocity];
+    ball =[[Ball alloc] initWithVelocity:CGPointMake(142.0, 245.0) :dx :dy ];
     ball.isReal = YES;
     //initialize dx and dy
-    [self getNewVelocity];
-    ball.dx = dx;
-    ball.dy = dy;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(AnimateBall:)  userInfo:nil repeats:YES];
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(addPoints)  userInfo:nil repeats:YES];
     [self.view addSubview:ball.ballImage];

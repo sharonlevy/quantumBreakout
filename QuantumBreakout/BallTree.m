@@ -91,6 +91,23 @@ struct Node {
     return ballArray;
 }
 
+-(void)deleteTreeRec:(struct Node *)node {
+    if(node==NULL){
+        return;
+    }
+    [self deleteTreeRec:node->left];
+    [self deleteTreeRec:node->right];
+    free(node->data);
+    free(node);
+}
+
+-(void)deleteTree {
+    [self deleteTreeRec:root];
+    //free(ballArray);
+    /*for (int i = [ballArray count]-1; i>=0; i--) {
+        [ballArray removeObjectAtIndex:i];
+    }*/
+}
 
 
 @end
