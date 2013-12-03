@@ -137,11 +137,11 @@
                               initWithTitle:@"You Win!"
                               message:[NSString stringWithFormat:@"%d", score]
                               delegate:self
-                              cancelButtonTitle:@"Play Again!"
+                              cancelButtonTitle:@"Next Level!"
                               otherButtonTitles:nil];
     
     [alertView show];
-    dy += 2;
+    dy++;
     //[timer invalidate];
     shouldAnimate = NO;
 }
