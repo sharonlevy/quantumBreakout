@@ -174,9 +174,9 @@
 {
     int maybe = arc4random()%2;
     if(maybe == 0){
-        dx = 3 + arc4random()%3;
+        dx = dy - 3 + arc4random()%3;
     }else{
-        dx = -6 + arc4random()%3;
+        dx = -dy + arc4random()%3;
     }
     //dy = 3 + arc4random()%3;
     //dy = 7;
