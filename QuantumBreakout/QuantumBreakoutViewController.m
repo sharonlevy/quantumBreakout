@@ -93,8 +93,8 @@
     else {
         dy = -6 + arc4random()%3;
     } */
-    Ball *testBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy];
-    testBall.intersectsSplitter = YES;
+    Ball *newBall = [[Ball alloc] initWithVelocity:thisBall.ballImage.center :thisBall.dx :(-1) * thisBall.dy];
+    newBall.intersectsSplitter = YES;
     
     if(thisBall.isReal){
         //50% chance
@@ -102,15 +102,15 @@
         NSLog(@"%d", maybe);
         if(maybe == 0){
             thisBall.isReal = NO;
-            testBall.isReal = YES;
+            newBall.isReal = YES;
         }
     }
     //thisBall.ballImage.layer.opacity -= 0.1;
     //testBall.ballImage.layer.opacity = thisBall.ballImage.layer.opacity;
     [thisBall decrementOpacity];
-    [testBall matchOpacity:thisBall];
-    [balls addObject:testBall];
-    [self.view.superview addSubview:testBall.ballImage];
+    [newBall matchOpacity:thisBall];
+    [balls addObject:newBall];
+    [self.view.superview addSubview:newBall.ballImage];
 }
 
 -(void)addPoints {
